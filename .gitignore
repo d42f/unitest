@@ -1,0 +1,10 @@
+*.gitmodules
+*.sw*
+*~
+.DS_Store
+.idea
+/.idea/**/*
+bin/
+build/
+node_modules/
+vendor/

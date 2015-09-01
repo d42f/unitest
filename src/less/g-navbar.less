@@ -1,0 +1,108 @@
+.g-navbar {
+  background: @brandColor;
+  overflow: visible;
+  .g-navbar__btn-navbar {
+    display: none;
+  }
+  .g-navbar__brand{
+    display: block;
+    float: left;
+    padding: 22px 44px 22px 0;
+    position: relative;
+    color: #fff;
+    font-size: 25px;
+    font-weight: normal;
+    &:hover, &:focus {
+      text-decoration: none;
+    }
+    &.beta {
+      &:before {
+        content: "BETA";
+        display: block;
+        position: absolute;
+        right: 18px;
+        top: 18px;
+        color: #1e769a;
+        font-size: 10px;
+      }
+    }
+    &:after {
+      content: "";
+      display: block;
+      background: #1e769a;
+      width: 1px;
+      height: 32px;
+      position: absolute;
+      right: 0;
+      top: 16px;
+    }
+  }
+  .g-navbar__nav-collapse.collapse {
+    height: auto;
+    overflow: visible;
+  }
+  .g_navbar__avatar {
+    display: block;
+    float: right;
+    margin: 8px 0 0;
+    white-space: nowrap;
+    vertical-align: top;
+    cursor: default;
+    .g_navbar__avatar-alert {
+      display: inline-block;
+      background: url(../img/alert.png) center center no-repeat;
+      width: 22px;
+      height: 22px;
+      margin: 0 5px 0 0;
+      position: relative;
+      top: 6px;
+      text-decoration: none;
+      span {
+        .border-radius(50%);
+        display: block;
+        background: #f1c500;
+        border: 1px solid #f1c500;
+        min-width: 11px;
+        line-height: 11px;
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        color: @brandColor;
+        font-size: 10px;
+        text-align: center;
+      }
+    }
+    .g_navbar__avatar-img {
+      display: inline-block;
+      img {
+        .border-radius(50%);
+        width: 48px;
+        height: 48px;
+      }
+    }
+  }
+  .g-navbar__nav {
+    list-style: none;
+    display: block;
+    margin: 0 0 0 23px;
+    padding: 0;
+    float: left;
+    position: relative;
+    left: 0;
+    li {
+      line-height: 32px;
+      float: left;
+      a {
+        display: block;
+        padding: 16px 25px;
+        text-decoration: none;
+        color: #a8d4e6;
+        font-size: 16px;
+        font-weight: bold;
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+  }
+}

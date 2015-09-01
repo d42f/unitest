@@ -1,0 +1,216 @@
+//
+// Buttons
+// --------------------------------------------------
+
+
+// Base styles
+// --------------------------------------------------
+
+// Core
+.btn {
+  display: inline-block;
+  .ie7-inline-block();
+  padding: 4px 12px;
+  margin-bottom: 0; // For input.btn
+  font-family: @sansFontFamily;
+  font-size: @baseFontSize;
+  line-height: @baseLineHeight;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  background: @btnBackground;
+  border: 1px solid @btnBorder;
+  *border: 0; // Remove the border to prevent IE7's black border on input:focus
+  .border-radius(@baseBorderRadius);
+  .ie7-restore-left-whitespace(); // Give IE7 some love
+
+  // Hover/focus state
+  &:hover,
+  &:focus {
+    color: @grayDark;
+    text-decoration: none;
+  }
+
+  // Focus state for keyboard and accessibility
+  &:focus {
+    .tab-focus();
+  }
+
+  // Active state
+  &.active,
+  &:active {
+    background-image: none;
+    outline: 0;
+  }
+
+  // Disabled state
+  &.disabled,
+  &[disabled] {
+    cursor: default;
+    background-image: none;
+    .opacity(65);
+  }
+
+}
+
+
+
+// Button Sizes
+// --------------------------------------------------
+
+// Large
+.btn-large {
+  padding: 9px 63px;
+  font-size: 16px;
+  .border-radius(@borderRadiusLarge);
+}
+.btn-large [class^="icon-"],
+.btn-large [class*=" icon-"] {
+  margin-top: 4px;
+}
+
+// Small
+.btn-small {
+  padding: @paddingSmall;
+  font-size: @fontSizeSmall;
+  .border-radius(@borderRadiusSmall);
+}
+.btn-small [class^="icon-"],
+.btn-small [class*=" icon-"] {
+  margin-top: 0;
+}
+.btn-mini [class^="icon-"],
+.btn-mini [class*=" icon-"] {
+  margin-top: -1px;
+}
+
+// Mini
+.btn-mini {
+  padding: @paddingMini;
+  font-size: @fontSizeMini;
+  .border-radius(@borderRadiusSmall);
+}
+
+
+// Block button
+// -------------------------
+
+.btn-block {
+  display: block;
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+  .box-sizing(border-box);
+}
+
+// Vertically space out multiple block buttons
+.btn-block + .btn-block {
+  margin-top: 5px;
+}
+
+// Specificity overrides
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  &.btn-block {
+    width: 100%;
+  }
+}
+
+// Set the backgrounds
+// -------------------------
+.btn-primary {
+  background: @btnPrimaryBackground;
+  color: #fff;
+  &:hover, &:focus, &:active, &.active, &.disabled, &[disabled] {
+    background: @btnPrimaryBackgroundHighlight; 
+    color: #fff;
+  }
+}
+// Success appears as green
+.btn-success {
+  .buttonBackground(@btnSuccessBackground, @btnSuccessBackgroundHighlight);
+}
+
+// Cross-browser Jank
+// --------------------------------------------------
+
+button.btn,
+input[type="submit"].btn {
+
+  // Firefox 3.6 only I believe
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+
+  // IE7 has some default padding on button controls
+  *padding-top: 3px;
+  *padding-bottom: 3px;
+
+  &.btn-large {
+    *padding-top: 7px;
+    *padding-bottom: 7px;
+  }
+  &.btn-small {
+    *padding-top: 3px;
+    *padding-bottom: 3px;
+  }
+  &.btn-mini {
+    *padding-top: 1px;
+    *padding-bottom: 1px;
+  }
+}
+
+// Link buttons
+// --------------------------------------------------
+
+// Make a button look and behave like a link
+.btn-link,
+.btn-link:active,
+.btn-link[disabled] {
+  background-color: transparent;
+  background-image: none;
+  .box-shadow(none);
+}
+.btn-link {
+  border-color: transparent;
+  cursor: pointer;
+  color: @linkColor;
+  .border-radius(0);
+  &.btn-large {
+    padding: 9px 23px;
+  }
+  &.btn-link-gray {
+    padding: 9px 8px;
+    &, &:hover, &:focus {
+      color: #bfbfbf;
+      text-decoration: none;
+    }
+  }
+}
+.btn-link:hover,
+.btn-link:focus {
+  color: @linkColorHover;
+  text-decoration: underline;
+  background-color: transparent;
+}
+.btn-link[disabled]:hover,
+.btn-link[disabled]:focus {
+  color: @grayDark;
+  text-decoration: none;
+}
+
+.btn-option {
+  border: 1px solid #d9d9d9;
+  background: #fff;
+  min-width: 32px;
+  line-height: 30px;
+  padding: 0;
+  color: #1a1a1a;
+  font-size: 16px;
+  text-align: center;
+  &:hover, &:focus {
+    background: #edefed;
+  }
+}

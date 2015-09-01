@@ -1,0 +1,83 @@
+//
+// Progress bars
+// --------------------------------------------------
+
+
+// ANIMATIONS
+// ----------
+
+// Webkit
+@-webkit-keyframes progress-bar-stripes {
+  from  { background-position: 40px 0; }
+  to    { background-position: 0 0; }
+}
+
+// Firefox
+@-moz-keyframes progress-bar-stripes {
+  from  { background-position: 40px 0; }
+  to    { background-position: 0 0; }
+}
+
+// IE9
+@-ms-keyframes progress-bar-stripes {
+  from  { background-position: 40px 0; }
+  to    { background-position: 0 0; }
+}
+
+// Opera
+@-o-keyframes progress-bar-stripes {
+  from  { background-position: 0 0; }
+  to    { background-position: 40px 0; }
+}
+
+// Spec
+@keyframes progress-bar-stripes {
+  from  { background-position: 40px 0; }
+  to    { background-position: 0 0; }
+}
+
+
+
+// THE BARS
+// --------
+
+// Outer container
+.progress {
+  .border-radius(16px);
+  background: #edefed;
+  height: 16px;
+  line-height: 16px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+ul.progress {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  li {
+    display: table-cell;
+    border-left: 1px solid #fff;
+    &:first-child {
+      border-left: 0;
+    }
+    &.a {
+      background: #49bb6c;
+    }
+  }
+}
+
+// Bar of progress
+.progress .bar {
+  background: #49bb6c;
+  width: 0%;
+  height: 100%;
+  color: @white;
+  float: left;
+  font-size: 12px;
+  text-align: center;
+  text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+  .box-sizing(border-box);
+  .transition(width .6s ease);
+}
