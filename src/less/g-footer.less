@@ -1,0 +1,42 @@
+.g-footer {
+  background: #29a5cc;
+  width: 100%;
+  min-height: @footerHeight;
+  overflow: visible;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  color: #dbeef5;
+  .g-footer__menu {
+    list-style: none;
+    margin: 0;
+    > * {
+      display: inline-block;
+      line-height: 30px;
+      margin: 0 0 0 40px;
+      &:first-child {
+        margin-left: 0;
+      }
+      > * {
+        display: block;
+        padding: 17px 0;
+        color: inherit;
+      }
+      > a {
+        text-decoration: none;
+        > * {
+          vertical-align: middle;
+        }
+        i {
+          margin-right: 6px;
+        }
+        &:hover {
+          > span {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}

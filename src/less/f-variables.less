@@ -22,13 +22,19 @@
 // -------------------------
 @blue:                  #049cdb;
 @blueDark:              #0064cd;
-@green:                 #46a546;
+@green:                 #49bb6c;
 @red:                   #9d261d;
-@yellow:                #ffc40d;
+@yellow:                #ffbe19;
 @orange:                #f89406;
 @pink:                  #c3325f;
 @purple:                #7a43b6;
 
+@mrBlue:        #56b0b5;
+@mrBlueDark:    #0071c1;
+@mrRed:         #ff555a;
+@mrPink:        #ff1288;
+@mrOrange:      #ffd35c;
+@mrGreen:       #5db513;
 
 // Scaffolding
 // -------------------------
@@ -36,12 +42,14 @@
 @textColor:            @grayDark;
 @brandColor:          #2594c1;
 @mutedColor:          #999999;
+@successColor:      @green;
+@dangerColor:        #e17d70;
 
 
 // Links
 // -------------------------
 @linkColor:            #2594c1;
-@linkColorHover:  darken(@linkColor, 15%);
+@linkColorHover:       darken(@linkColor, 15%);
 
 
 // Typography
@@ -96,11 +104,11 @@
 @btnInfoBackground:                 #5bc0de;
 @btnInfoBackgroundHighlight:        #2f96b4;
 
-@btnSuccessBackground:              #62c462;
-@btnSuccessBackgroundHighlight:     #51a351;
+@btnSuccessBackground:              @green;
+@btnSuccessBackgroundHighlight:     darken(@green, 5%);
 
-@btnWarningBackground:              lighten(@orange, 15%);
-@btnWarningBackgroundHighlight:     @orange;
+@btnWarningBackground:              @yellow;
+@btnWarningBackgroundHighlight:     darken(@yellow, 5%);
 
 @btnDangerBackground:               #ee5f5b;
 @btnDangerBackgroundHighlight:      #bd362f;
@@ -236,7 +244,7 @@
 @warningBackground:       #fcf8e3;
 @warningBorder:           darken(spin(@warningBackground, -10), 3%);
 
-@errorText:               #b94a48;
+@errorText:               #d95c4c;
 @errorBackground:         #f2dede;
 @errorBorder:             darken(spin(@errorBackground, -10), 3%);
 

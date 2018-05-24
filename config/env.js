@@ -19,7 +19,7 @@ module.exports = function (express, app) {
 +       app.use('/css', require('less-middleware')(__dirname + '/../src/less', {
             dest: __dirname + '/../build/css'
         }, {}, {
-          compress: false
+          compress: true
         }));
 
         // Create static file servers for the build and public folders

@@ -1,0 +1,114 @@
+.b-achievement {
+  .box-sizing(border-box);
+  display: inline-block;
+  background: #fff;
+  width: 128px;
+  min-height: 128px;
+  position: relative;
+  margin: 0;
+  padding: 5px;
+  text-align: center;
+  &:before {
+    .border-radius(50%);
+    content: '';
+    display: block;
+    width: 128px;
+    height: 128px;
+    background: #fff url(../img/bg-achievement.png) 0 -128px no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  &:after {
+    .border-radius(50%);
+    content: '';
+    display: block;
+    background: #fff;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    bottom: -10px;
+    left: -20px;
+    z-index: 0;
+  }
+  a {
+    .box-sizing(border-box);
+    .border-radius(50%);
+    display: block;
+  }
+  img {
+    .box-sizing(border-box);
+    .border-radius(50%);
+    display: block;
+    border: 5px solid #fff;
+    position: relative;
+    z-index: 2;
+  }
+  span {
+    display: block;
+    margin: 12px -32px 0;
+    position: relative;
+    z-index: 2;
+    font-size: 16px;
+  }
+  &.sep-2:before {
+    background-position: -128px -128px;
+  }
+  &.sep-3:before {
+    background-position: -256px -128px;
+  }
+  &.sep-4:before {
+    background-position: -384px -128px;
+  }
+  &.disabled {
+    background-position: 0 0;
+    &.sep-2:before {
+      background-position: -128px 0;
+    }
+    &.sep-3:before {
+      background-position: -256px 0;
+    }
+    &.sep-4:before {
+      background-position: -384px 0;
+    }
+  }
+  &.small {
+    width: 96px;
+    min-height: 96px;
+    &:before {
+      width: 96px;
+      height: 96px;
+      background: #fff url(../img/bg-achievement-small.png) 0 -96px no-repeat;
+    }
+    &.sep-2:before {
+      background-position: -96px -96px;
+    }
+    &.sep-3:before {
+      background-position: -192px -96px;
+    }
+    &.sep-4:before {
+      background-position: -288px -96px;
+    }
+    &.disabled {
+      background-position: 0 0;
+      &.sep-2:before {
+        background-position: -96px 0;
+      }
+      &.sep-3:before {
+        background-position: -192px 0;
+      }
+      &.sep-4:before {
+        background-position: -288px 0;
+      }
+    }
+  }
+  &.transparent {
+    &, &:after {
+      background-color: transparent;
+    }
+    &:after {
+      display: none;
+    }
+  }
+}

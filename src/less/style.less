@@ -14,14 +14,86 @@
 @import "f-component-animations.less";
 
 @import "f-buttons.less";
+@import "f-button-groups.less";
+@import "f-navs.less";
+@import "f-labels-badges.less";
 @import "f-progress-bars.less";
+@import "f-list-group.less";
+
+@import "../../public/vendor/waves.less";
+
+@footerHeight: 64px;
+
+.cardblock() {
+  > * {
+    .box-shadow(0 2px 0 0 #d5d5d5);
+    .border-radius(@baseBorderRadius);
+    border: 2px solid #fff;
+    background: #fff;
+    &.is-danger {
+      .box-shadow(none);
+      border-color: @dangerColor;
+    }
+    &.is-success {
+      .box-shadow(none);
+      border-color: @successColor;
+    }
+    > * {
+      padding: 24px;
+    }
+  }
+}
 
 html, body {
   background: #edefed;
 }
 
+html {
+  min-height: 100%;
+  position: relative;
+}
+
+body {
+  padding-bottom: @footerHeight + 144px;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  &::-webkit-inner-spin-button, 
+  &::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin: 0;
+  }
+}
+
+.text-mini {
+  line-height: 16px;
+  font-size: 12px;
+}
+
+.text-400 {
+  font-weight: 400 !important;
+}
+
+.text-600 {
+  font-weight: 600 !important;
+}
+
+.text-700 {
+  font-weight: 700 !important;
+}
+
 .text-muted {
   color: @mutedColor !important;
+}
+
+.text-success {
+  color: @successColor !important;
+}
+
+.text-italic {
+  font-style: italic !important;
 }
 
 .text-left {
@@ -48,9 +120,70 @@ html, body {
   float: right !important;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
+.display-none {
+  display: none;
+}
+
+.table-fixed {
+  table-layout: fixed;
+}
+
+.caret {
+  content: '';
+  display: inline-block;
+  border-top: 8px solid #000;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  &.up {
+    border-top: 0;
+    border-bottom: 8px solid #000;
+  }
+}
+
+.nav-tabs {
+  > li {
+    > a {
+      padding: 0;
+      outline: none;
+      > span {
+        .box-shadow(none);
+        display: block;
+        padding: 8px 12px;
+      }
+    }
+  }
+}
+
 @import "g-navbar.less";
+@import "g-footer.less";
 @import "g-body.less";
 
+@import "b-grid.less";
+@import "b-well.less";
+@import "b-steps.less";
+@import "b-cells.less";
+@import "b-chart.less";
+@import "b-checkbox.less";
+@import "b-dropdown.less";
 @import "b-testcard.less";
+@import "b-achievement.less";
+@import "b-courses-buy.less";
+@import "b-courses-list.less";
+@import "b-user-progress.less";
+@import "b-proceedings-list.less";
+@import "b-circular-progress.less";
+
+@import "m-courses.less";
+@import "m-course.less";
+@import "m-course-buy.less";
+@import "m-course-tasks.less";
+@import "m-course-lesson.less";
 
 /* */

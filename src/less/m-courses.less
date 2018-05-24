@@ -1,0 +1,198 @@
+.m-courses {
+  .g-content {
+    float: none;
+    width: auto;
+  }
+  h2 {
+    margin: 68px 0 43px;
+    font-size: 38px;
+    font-weight: lighter;
+    text-align: center;
+    &:first-child {
+      margin-top: 4px;
+    }
+  }
+  .m-courses__row {
+    .clearfix();
+    margin: 24px 0 0;
+  }
+  .m-courses__col {
+    width: 352px;
+    float: left;
+    margin: 0 0 0 24px;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+  .m-courses__cell {
+    .cardblock();
+    .m-courses__cell-header {
+      background: #fff;
+      margin: -2px -2px 0;
+      padding: 0;
+      a {
+        display: block;
+        min-height: 156px;
+        padding: 30px 20px;
+        text-decoration: none;
+      }
+      img {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+    .m-courses__cell-body {
+      min-height: 79px;
+      text-align: center;
+      h4 {
+        margin: -4px 0 24px;
+        font-size: 22px;
+        font-weight: normal;
+      }
+      button {
+        width: 256px;
+        padding: 9px 0;
+      }
+      p {
+        margin: 22px 0 0;
+        color: #666;
+        font-size: 16px;
+      }
+      .simpleprogress {
+        margin: 23px 0 0;
+      }
+      ul {
+        .clearfix();
+        list-style: none;
+        margin: 0 -24px 0;
+        li {
+          width: 33.333%;
+          padding: 5px 0 4px;
+          float: left;
+          position: relative;
+          color: #999;
+          &:before {
+            content: '';
+            display: block;
+            background: #d9d9d9;
+            width: 1px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: -1px;
+          }
+          &:first-child:before {
+            display: none;
+          }
+          span {
+            display: block;
+            margin: 4px 0 0;
+            white-space: nowrap;
+          }
+        }
+      }
+      .m-courses__cell-toolbar {
+        min-height: 40px;
+        position: relative;
+        margin: 22px 0 0;
+        span {
+          display: inline-block;
+          color: #666;
+          font-size: 16px;
+        }
+        .btn {
+          display: none;
+        }
+      }
+    }
+    .m-courses__cell-new {
+      width: 80px;
+      height: 80px;
+      padding: 0;
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      overflow: hidden;
+      span {
+        .box-shadow(0 1px 2px rgba(0, 0, 0, .2));
+        .rotate(45deg);
+        display: block;
+        background: #fff;
+        margin: 0 -75px;
+        position: relative;
+        top: 20px;
+        right: -10px;
+        white-space: nowrap;
+        font-size: 12px;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+      }
+    }
+    .m-courses__cell-container {
+      position: relative;
+      &:hover {
+        .box-shadow(0 0 6px 3px #c5c5c5);
+        .m-courses__cell-toolbar {
+          span {
+            display: none;
+          }
+          .btn {
+            display: inline-block;
+          }
+        }
+      }
+      &.is-new {
+        
+      }
+    }
+    &.mr-blue {
+      .m-courses__cell-new {
+        color: @mrBlue;
+      }
+      .m-courses__cell-header {
+        background: @mrBlue;
+      }
+    }
+    &.mr-bluedark {
+      .m-courses__cell-new {
+        color: @mrBlueDark;
+      }
+      .m-courses__cell-header {
+        background: @mrBlueDark;
+      }
+    }
+    &.mr-red {
+      .m-courses__cell-new {
+        color: @mrRed;
+      }
+      .m-courses__cell-header {
+        background: @mrRed;
+      }
+    }
+    &.mr-pink {
+      .m-courses__cell-new {
+        color: @mrPink;
+      }
+      .m-courses__cell-header {
+        background: @mrPink;
+      }
+    }
+    &.mr-orange {
+      .m-courses__cell-new {
+        color: @mrOrange;
+      }
+      .m-courses__cell-header {
+        background: @mrOrange;
+      }
+    }
+    &.mr-green {
+      .m-courses__cell-new {
+        color: @mrGreen;
+      }
+      .m-courses__cell-header {
+        background: @mrGreen;
+      }
+    }
+  }
+}

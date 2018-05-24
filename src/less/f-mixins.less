@@ -274,6 +274,18 @@
        -o-transition-duration: @transition-duration;
           transition-duration: @transition-duration;
 }
+.transition-property(@transition) {
+  -webkit-transition-property: @transition;
+     -moz-transition-property: @transition;
+       -o-transition-property: @transition;
+          transition-property: @transition;
+}
+.transition-timing-function(@timing) {
+  -webkit-transition-timing-function: @timing;
+     -moz-transition-timing-function: @timing;
+       -o-transition-timing-function: @timing;
+          transition-timing-function: @timing;
+} 
 
 // Transformations
 .rotate(@degrees) {

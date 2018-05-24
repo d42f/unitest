@@ -1,0 +1,38 @@
+<div class="container m-course-buy">
+  <div class="g-content">
+    {{#if isauth}}
+      <img class="m-course-buy__status" src="/img/img-success.png" alt="">
+      <h1 class="m-course-buy__title text-success">Спасибо за покупку!<br>Доступ к ресурсам открыт.</h1>
+      <ul class="b-courses-list">
+        <li>
+          <div class="b-courses-list__img">
+            <img src="/img/courses/r-l.png" alt="">
+          </div>
+          <div class="b-courses-list__label">
+            <span>Русский язык</span>
+          </div>
+          <div class="b-courses-list__toolbar">
+            <a class="btn btn-success" href="">Начать</a>
+          </div>
+        </li>
+        <li>
+          <div class="b-courses-list__img">
+            <img src="/img/courses/cs.png" alt="">
+          </div>
+          <div class="b-courses-list__label">
+            <span>Информатика и ИКТ</span>
+          </div>
+          <div class="b-courses-list__toolbar">
+            <a class="btn btn-success" href="">Начать</a>
+          </div>
+        </li>
+      </ul>
+    {{else}}
+      <img class="m-course-buy__status" src="/img/img-fail.png" alt="">
+      <h1 class="m-course-buy__title">Произошла ошибка</h1>
+      <div class="m-course-buy__try-again">
+        <a class="btn btn-success" href="/courses/1/buy">Попробовать снова</a>
+      </div>
+    {{/if}}
+  </div>
+</div>

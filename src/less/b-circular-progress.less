@@ -1,0 +1,121 @@
+@circle-size: 160px;
+@circle-width: 0.5em;
+
+.b-circular-progress {
+  width: @circle-size;
+  height: @circle-size + 10;
+  margin: 0 auto;
+  position: relative;
+  > span {
+    display: block;
+    width: 100%;
+    line-height: 24px;
+    min-height: 52px;
+    margin: -18px 0 0;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    z-index: 2;
+    color: #4dbd70;
+    text-align: center;
+    font-size: 20px;
+    .text-large {
+      font-size: 28px;
+    }
+  }
+  .c-100 {
+    position: relative;
+    z-index: 0;
+    top: 10px;
+    &:before {
+      content: "";
+      display: block;
+      background: url(../img/bg-circular-progress.png) center top no-repeat;
+      width: 100%;
+      height: @circle-size + 10;
+      position: absolute;
+      top: -10px;
+      left: 0;
+      z-index: 1;
+    }
+    &.p-100 {
+      &:before {
+        background-position: center bottom;
+      }
+    }
+  }
+}
+
+.b-circular-progress__rect-auto {
+  clip: rect(auto, auto, auto, auto);
+}
+
+.b-circular-progress__pie {
+  .rotate(0deg);
+  position: absolute;
+  border: @circle-width solid #4dbd70;
+  width: 1 - (2 * @circle-width);
+  height: 1 - (2 * @circle-width);
+  clip: rect(0em, 0.5em, 1em, 0em);
+  border-radius: 50%;
+}
+
+.b-circular-progress__pie-fill {
+  .rotate(180deg);
+}
+
+.c-100 {
+  position: relative;
+  font-size: @circle-size;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background-color: #e5e5e5;
+  *, *:before, *:after {
+    .box-sizing(content-box);
+  }
+
+  /* the slice (mask) */
+  .slice {
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    clip: rect(0em, 1em, 1em, 0.5em);
+  }
+
+  /* circle to show the status */
+  .bar {
+    &:extend(.b-circular-progress__pie);
+  }
+
+  /* loop to create all needed elements automatically */
+  .generate-elements(@n, @i: 1) when (@i =< @n) {
+    &.p-@{i} {
+      & .slice {
+        &:extend(.b-circular-progress__rect-auto);
+      }
+      & .bar:after{
+        &:extend(.b-circular-progress__pie-fill);
+      }
+      & .fill{
+        &:extend(.b-circular-progress__pie);
+        &:extend(.b-circular-progress__pie-fill);
+      }
+    }
+    .generate-elements(@n, (@i + 1));
+  }
+  /* loop to rotate all 100 circles */
+  .generate-rotation(@n, @i: 1) when (@i =< @n) {
+    &.p-@{i} .bar {
+      @degs: (360 / 100 * min(max(@i, 3), 97));
+      .rotate(~"@{degs}deg");
+    }
+    .generate-rotation(@n, (@i + 1));
+  }
+
+  .generate-elements(100, 51);
+  .generate-rotation(100, 1);
+  &.p-100 .bar {
+    .rotate(360deg);
+  }
+}

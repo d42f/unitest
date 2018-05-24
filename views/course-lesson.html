@@ -1,0 +1,86 @@
+<div class="container m-course-lesson">
+  <div class="m-course-lesson__primary-block">
+    <div class="g-content">
+      <h1 class="text-center">
+        <span class="text-small">Урок 23. Курс Географии</span>
+        <span>Решите задания по теме</span>
+      </h1>
+      <div class="m-course-lesson__video">
+        <iframe width="848" height="507" src="https://www.youtube.com/embed/yzorSIF4VkE" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="m-course-lesson__toolbar">
+        <button class="btn btn-success" type="button" data-toggle-parent="video-complete" data-toggle-parent-delay="video-complete-next-step">Я посмотрел видео</button>
+        <div class="video-complete">
+          <span class="text-large">+50 XP</span><br><span>Видео просмотрено</span>
+        </div>
+        <div class="video-complete-next-step">
+          <span><i class="uticon uticon-success-round"></i></span><br><span>Видео просмотрено</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="m-course-lesson__secondary-block">
+    <div class="g-content">
+      <h2>Решите задания по теме</h2>
+      <script>
+        var TASKDATA = '{{{taskdata}}}';
+        var RESULTDATA = '{{{resultdata}}}';
+        var COMPLETEDATA = '{{{completedata}}}';
+      </script>
+      {{> task}}
+    </div>
+  </div>
+  <div class="m-course-lesson__secondary-block">
+    <div class="g-content">
+      <h2>
+        <a href="" data-toggle-block=".m-course-lesson__block-info"><span>Дополнительные материалы</span>&nbsp;<b class="caret"></b><b class="caret up"></b></a>
+      </h2>
+      <div class="m-course-lesson__block-info" data-toggle-block-style="slide-toggle">
+        <div class="m-course-lesson__block-info-container">
+          <div class="m-course-lesson__block-info-body">
+            <ul class="b-proceedings-list">
+              <li>
+                <a href="">
+                  <span>Строение личности по Маслоу. Схема.</span>
+                  <span class="pull-right">
+                    <span class="badge red">PDF</span>
+                    <span>0,4 мб</span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span>История России в комиксах</span>
+                  <span class="pull-right">
+                    <span class="badge badge-important">WORD</span>
+                    <span>2,4 мб</span>
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a href="">
+                  <span>Клименко А.В., Румынина В.В., Обществознание</span>
+                  <span class="pull-right">
+                    <span class="badge">PDF</span>
+                    <span>8,4 мб</span>
+                  </span>
+                </a>
+              </li>
+            </ul>
+            <div class="text-center">
+              <a class="btn btn-link" href=""><i class="uticon uticon-download"></i>&nbsp;Скачать всё</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="m-course-lesson__secondary-block">
+    <div class="g-content">
+      <div class="m-course-lesson__padination">
+        <a href=""><i class="uticon uticon-arrow-left2"></i>&nbsp;<span>Предыдущий урок</span></a>
+        <a href=""><span>Следующий урок</span>&nbsp;<i class="uticon uticon-arrow-right2"></i></a>
+      </div>
+    </div>
+  </div>
+</div>

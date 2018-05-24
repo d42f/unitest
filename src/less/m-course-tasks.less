@@ -1,0 +1,231 @@
+.m-course-tasks {
+  .g-sidebar {
+  }
+  .g-content {
+  }
+  [class^=m-course-tasks__well__] {
+    .cardblock();
+    margin-top: 32px;
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+  h1, h2, h3, h4, h5 {
+    margin: 0;
+    font-weight: normal;
+  }
+  h1 {
+    margin: -11px 0 27px;
+    font-weight: lighter;
+    .b-checkbox {
+      line-height: 14px;
+      float: right;
+      margin: 22px 0 0;
+      font-size: 14px;
+      font-weight: normal;
+    }
+  }
+  h2, h3, h4 {
+    text-align: center;
+  }
+  h4 {
+    line-height: 32px;
+    margin: -5px 0 0;
+    font-size: 28px;
+    font-weight: lighter;
+  }
+  .b-dropdown {
+    .transition(all .15s linear);
+    .b-dropdown__toggle {
+      outline: none;
+      .caret {
+        display: inline-block;
+        border-top-color: @brandColor;
+        border-bottom-color: @brandColor;
+      }
+      .caret.up {
+        display: none;
+      }
+    }
+    .b-dropdown__menu {
+      .transition(all .15s linear);
+      .box-shadow(none);
+      display: block;
+      background: transparent;
+      height: 0;
+      margin: -10px 0 0 -20px;
+      overflow: hidden;
+      position: static;
+      top: auto;
+      right: auto;
+      &:after {
+        display: none;
+      }
+      > li {
+        display: inline-block;
+        margin: 10px 0 0 20px;
+        > a {
+          .border-radius(@baseBorderRadius);
+          display: block;
+          background: #fff;
+          padding: 8px 24px 9px;
+          text-decoration: none;
+          color: #666;
+          font-size: 14px;
+          &:hover {
+            background: @brandColor;
+            color: #fff;
+          }
+        }
+        &.mr-blue {
+          &.active > a,
+          > a:hover {
+            background: @mrBlue;
+            color: #fff;
+          }
+        }
+        &.mr-bluedark {
+          &.active > a,
+          > a:hover {
+            background: @mrBlueDark;
+            color: #fff;
+          }
+        }
+        &.mr-red {
+          &.active > a,
+          > a:hover {
+            background: @mrRed;
+            color: #fff;
+          }
+        }
+        &.mr-pink {
+          &.active > a,
+          > a:hover {
+            background: @mrPink;
+            color: #fff;
+          }
+        }
+        &.mr-orange {
+          &.active > a,
+          > a:hover {
+            background: @mrOrange;
+            color: #fff;
+          }
+        }
+        &.mr-green {
+          &.active > a,
+          > a:hover {
+            background: @mrGreen;
+            color: #fff;
+          }
+        }
+      }
+    }
+    &.is-open {
+      margin-bottom: 30px;
+      .b-dropdown__toggle {
+        .caret {
+          display: none;
+        }
+        .caret.up {
+          display: inline-block;
+        }
+      }
+      .b-dropdown__menu {
+        height: auto;
+      }
+    }
+  }
+  .b-cells {
+    margin: 2px 0 0;
+  }
+  .m-course-tasks__well__variants {
+    .text-mini {
+      margin: 20px 0 0;
+    }
+  }
+  .m-course-tasks__well__work {
+    text-align: center;
+    .btn {
+      width: 190px;
+      margin: 19px 0 0;
+      padding: 9px 0;
+    }
+    p {
+      margin: 24px 0 15px;
+    }
+  }
+  .m-course-tasks__well__day {
+    text-align: center;
+    .b-user-progress {
+      margin: 17px auto 0;
+    }
+    .b-chart {
+      margin: 52px auto 0;
+    }
+    p {
+      margin: 9px 0 0;
+      font-size: 16px;
+    }
+    .text-muted {
+      margin: 46px 0 0;
+      .text-large {
+        line-height: 30px;
+        font-size: 24px;
+        font-weight: bold;
+      }
+    }
+  }
+  .m-course-tasks__well__test {
+    h4 {
+      margin-top: 2px;
+    }
+    h5 {
+      margin: 19px 0;
+      font-weight: bold;
+    }
+    .tab-content {
+      overflow: visible;
+    }
+    .tab-pane {
+      h5 {
+        &:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+    .btn-group {
+      margin-top: 19px;
+      .btn {
+        width: 160px;
+        padding: 7px 0;
+        text-align: center;
+      }
+    }
+    .list-group {
+      li {
+        padding: 0;
+        a {
+          display: block;
+          background: #f7f7f7;
+          padding: 6px 16px 8px;
+          &:hover {
+            background: #edefed;
+          }
+        }
+      }
+    }
+    ol.list-group {
+      li {
+        padding-left: 0;
+        a {
+          padding-left: 48px;
+        }
+      }
+    }
+    .m-course-tasks__test-toolbar {
+      margin: 0 0 32px;
+      text-align: center;
+    }
+  }
+}

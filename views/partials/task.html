@@ -1,0 +1,237 @@
+<div class="b-testcard hidden" ng-app="TaskApp" ng-controller="TaskAppCtrl">
+  <div class="b-testcard__container" ng-if="!data.index">
+    <div class="b-testcard__body">
+      <span>Я сломался :(</span>
+    </div>
+  </div>
+  <div class="b-testcard__container is-finish is-complete" ng-if="complete" ng-class="{
+    'is-complete-blue': complete.percents >= 50 && complete.percents < 75,
+    'is-complete-orange': complete.percents >= 25 && complete.percents < 50,
+    'is-complete-red': complete.percents >= 0 && complete.percents < 25
+  }">
+    <div class="b-testcard__header">
+      <span>Промежуточный тест завершен</span>
+    </div>
+    <div class="b-testcard__body">
+      <div class="hero-unit">
+        <span class="text-large" ng-bind="complete.percents + '%'"></span><br><span>верных ответов</span>
+        <div class="text-center">
+          <span class="is-round"><strong ng-bind="'+' + complete.experience + ' XP'"></strong> опыта получено</span>
+        </div>
+      </div>
+    </div>
+    <div class="b-testcard__footer">
+      <button class="btn btn-link btn-block" type="button" ng-click=""><i class="uticon uticon-arrow-left"></i>&nbsp;Закончить</button>
+      <button class="btn btn-link btn-block" type="button" ng-click="">Показать ответы</button>
+    </div>
+  </div>
+  <div class="b-testcard__container is-finish" ng-if="!complete && result && !result.skips">
+    <div class="b-testcard__header">
+      <h3>Задание&nbsp;<span class="text-muted"><span ng-bind="data.count"></span>/<span ng-bind="data.count"></span></span></h3>
+      <button class="btn btn-link" type="button" ng-click="completeTest()">Завершить</button>
+      <div class="b-testcard__header-progress">
+        <ul class="progress">
+          <li class="a" ng-repeat="o in ::$root.Array(data.count)">
+        </ul>
+      </div>
+    </div>
+    <div class="b-testcard__body">
+      <div class="hero-unit">
+        <span>Молодец!<br>Базовые задания решены</span>
+      </div>
+    </div>
+    <div class="b-testcard__footer">
+      <button class="btn btn-link btn-block" type="button" ng-click="completeTest()">Закончить</button>
+      <button class="btn btn-link btn-block" type="button" ng-click="firstskipQuestion()">Расширенное задание&nbsp;<i class="uticon uticon-arrow-right"></i></button>
+    </div>
+  </div>
+  <div class="b-testcard__container is-finish has-skips" ng-if="!complete && result && result.skips">
+    <div class="b-testcard__header">
+      <h3>Задание&nbsp;<span class="text-muted"><span ng-bind="result.count - result.skips"></span>/<span ng-bind="result.count"></span></span></h3>
+      <button class="btn btn-link" type="button" ng-click="completeTest()">Завершить</button>
+      <div class="b-testcard__header-progress">
+        <ul class="progress">
+          <li class="a" ng-repeat="o in ::$root.Array(data.count)">
+        </ul>
+      </div>
+    </div>
+    <div class="b-testcard__body">
+      <div class="hero-unit">
+        <span>У вас осталось <span ng-bind="result.skips"></span> вопросов<br>без правильного ответа.<br>Дорешаем до конца?</span>
+      </div>
+      <div class="text-center">
+        <button class="btn btn-primary" type="button" ng-click="completeTest()">ЗАКОНЧИТЬ</button>
+        <button class="btn btn-success" type="button" ng-click="firstskipQuestion()">ДОРЕШАТЬ</button>
+      </div>
+    </div>
+  </div>
+  <div class="b-testcard__container" ng-if="!complete && !result && data.index" ng-class="{
+    'is-danger': isMakeAnswer && !isCorrectAnswer,
+    'is-success': isMakeAnswer && isCorrectAnswer
+  }">
+    <div class="b-testcard__header">
+      <h3>Задание&nbsp;<span class="text-muted"><span ng-bind="data.index"></span>/<span ng-bind="data.count"></span></span></h3>
+      <button class="btn btn-link" type="button" ng-click="completeTest()">Завершить</button>
+      <div class="b-testcard__header-progress">
+        <ul class="progress">
+          <li ng-repeat="o in ::$root.Array(data.count)" ng-class="{'a' : $index < data.index}">
+        </ul>
+      </div>
+    </div>
+    <div class="b-testcard__body">
+      <div class="b-testcard__body-question">
+        <h5 ng-if="data.title" ng-bind-html="data.title | trusthtml"></h5>
+        <p ng-if="data.description" ng-bind-html="data.description | trusthtml"></p>
+        <img ng-if="data.image" ng-src="{[{data.image}]}" alt="">
+        <table ng-if="data.table" ng-class="{
+          'table-fixed': data.type === 'drag-and-drop-table'
+        }">
+          <thead>
+            <tr>
+              <th ng-repeat="col in ::data.table.cols track by $index" class="text-nowrap" ng-bind-html="col | trusthtml"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="row in ::$root.normalizeTableCells(data.table.cells, data.table.cols.length)">
+              <td ng-repeat="cell in ::row track by $index" ng-class="{'is-empty': !cell, 'is-editable': !cell}">
+                <i ng-if="!cell" class="uticon uticon-question"></i>
+                <span ng-if="cell" ng-bind-html="cell | trusthtml"></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div ng-if="data.editor" ng-bind-html="::data.editor | editor | trusthtml"></div>
+        <h6 ng-if="data.subtitle" ng-bind-html="data.subtitle | trusthtml"></h6>
+        <div ng-if="data.subdescription" ng-bind-html="data.subdescription | trusthtml"></div>
+      </div>
+      <div class="b-testcard__body-answers">
+        <ul
+          ng-if="$root.contains(['single-answer', 'single-answer-with-images', 'several-answers'], data.type)"
+          ng-class="{
+            'b-testcard__body-answers__single-answer': data.type === 'single-answer',
+            'b-testcard__body-answers__several-answers': data.type === 'several-answers',
+            'b-testcard__body-answers__single-answer-with-images': data.type === 'single-answer-with-images'
+          }"
+        >
+          <li ng-repeat="o in data.answers" ng-class="{
+            'is-primary': isSelectedAnswer($index),
+            'is-success': isMakeAnswer && o.isCorrect && (isSelectedAnswer($index) || needShowAnswer),
+            'is-danger': isMakeAnswer && !o.isCorrect && isSelectedAnswer($index)
+          }">
+            <button class="btn btn-option" ng-bind="$index + 1" ng-click="selectAnswer(o, $index)"></button>
+            <div ng-if="o.image" class="img-wrapper"><img alt="" ng-src="{[{o.image}]}" ng-click="selectAnswer(o, $index)"></div>
+            <span ng-if="o.label" ng-bind="o.label"></span>
+          </li>
+        </ul>
+        <div class="b-testcard__body-answers__columns" ng-if="data.type === 'list-sorting'">
+          <h5 class="text-600">События:</h5>
+          <div class="b-testcard__body-answers__columns-full">
+            <div class="b-testcard__body-answers__columns-wrapper">
+              <ol class="list-group">
+                <li ng-repeat="o in data.list" ng-class="{
+                  'is-success': isMakeAnswer && !needShowAnswer && data.list[$index] === data.answer[$index],
+                  'is-danger': isMakeAnswer && (needShowAnswer || data.list[$index] !== data.answer[$index])
+                }">
+                  <i ng-bind="$index + 1">1</i><!--
+                  --><span ng-if="!needShowAnswer" ng-bind-html="o | trusthtml"></span><!--
+                  --><span ng-if="needShowAnswer" ng-bind-html="data.answer[$index] | trusthtml"></span>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div class="b-testcard__body-answers__columns" ng-if="data.type === 'relations'">
+          <div class="b-testcard__body-answers__columns-left">
+            <div class="b-testcard__body-answers__columns-wrapper">
+              <h5 class="text-600"><span ng-bind="data.dragtitle"></span>:</h5>
+              <ul class="list-group">
+                <li ng-repeat="o in ::data.draggables" ng-click="selectDraggableItem($event, o)">
+                  <span ng-bind="o | trusthtml"></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="b-testcard__body-answers__columns-right">
+            <div class="b-testcard__body-answers__columns-wrapper">
+              <h5 class="text-600"><span ng-bind="data.droptitle"></span>:</h5>
+              <ul class="list-group">
+                <li ng-repeat="o in ::data.droppables" ng-click="selectDroppableItem($event, o)">
+                  <span ng-bind="o | trusthtml"></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="b-testcard__body-answers__columns" ng-if="data.type === 'drag-and-drop-table'">
+          <h5>Перетащите пропущенные элемнты в таблицу:</h5>
+          <div class="b-testcard__body-answers__columns-left" ng-if="data.columns.length > 0">
+            <div class="b-testcard__body-answers__columns-wrapper">
+              <ul class="list-group">
+                <li ng-repeat="o in ::data.columns[0]">
+                  <span ng-bind-html="o | trusthtml"></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="b-testcard__body-answers__columns-right" ng-if="data.columns.length > 1">
+            <div class="b-testcard__body-answers__columns-wrapper">
+              <ul class="list-group">
+                <li ng-repeat="o in ::data.columns[1]">
+                  <span ng-bind-html="o | trusthtml"></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <form action="/" ng-if="data.type === 'text-field'" ng-submit="makeAnswer($event)">
+          <input class="b-testcard__body-answers__text-field" type="text" placeholder="Впишите прощенное"
+            ng-class="{
+              'is-primary': hasAnswer,
+              'is-success': isMakeAnswer && isCorrectAnswer,
+              'is-danger': isMakeAnswer && !isCorrectAnswer
+            }"
+            ng-model="answer.textfield"
+            ng-disabled="isMakeAnswer"
+          >
+        </form>
+        <form class="b-testcard__body-answers__input-characteristics" action="/" ng-if="data.type === 'input-characteristics'" ng-submit="makeAnswer($event)">
+          <div ng-repeat="o in data.answer">
+            <h6 ng-if="o.title" ng-bind-html="o.title | trusthtml"></h6>
+            <input type="number" autocomplete="off"
+              ng-class="{
+                'is-primary': hasAnswer,
+                'is-success': isMakeAnswer && isCorrectAnswer,
+                'is-danger': isMakeAnswer && !isCorrectAnswer
+              }"
+              ng-repeat="input in o.values"
+              ng-model="answer.characteristics[$parent.$index + '' + $index]"
+              ng-disabled="isMakeAnswer"
+            >
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="b-testcard__footer">
+      <div class="b-dropdown is-open-to-top pull-right" data-dropdown>
+        <button class="btn btn-large btn-link btn-link-gray b-dropdown__toggle" type="button"><i class="uticon uticon-vertical-ellipsis"></i></button>
+        <ul class="b-dropdown__menu">
+          <li><a href="">C этим заданием что-то не так</a></li>
+        </ul>
+      </div>
+
+      <button class="btn btn-large btn-link pull-right" type="button" ng-if="!isCorrectAnswer" ng-click="showAnswer()">Показать ответ</button>
+
+      <button class="btn btn-large btn-primary" type="button" ng-if="!isMakeAnswer && !hasAnswer" ng-click="nextQuestion()">Пропустить</button>
+      <button class="btn btn-large btn-primary" type="button" ng-if="!isMakeAnswer && hasAnswer" ng-click="makeAnswer()">Ответить</button>
+      <button class="btn btn-large btn-primary" type="button" ng-if="isMakeAnswer" ng-click="nextQuestion()">Дальше</button>
+
+      <button class="btn btn-large btn-link btn-link-repeat" type="button" ng-if="isMakeAnswer && !isCorrectAnswer" ng-click="repeatQuestion()"><i class="uticon uticon-repeat"></i></button>
+      <span class="b-testcard__footer-hint" ng-if="data.hint" ng-bind-html="data.hint | trusthtml"></span>
+    </div>
+  </div>
+</div>
+
+<script src="/vendor/jquery-ui.min.js"></script>
+<script src="/vendor/jquery-ui.touch-punch.min.js"></script>
+<script src="/vendor/angular.min.js"></script>
+<script src="/js/taskapp.js"></script>

@@ -1,7 +1,137 @@
-<div class="container">
-  <ul>
-    {{#items}}
-      <li><a href="{{href}}">{{name}}</a></li>
-    {{/items}}
-  </ul>
+<div class="container m-course-tasks">
+  <div class="clearfix">
+    <div class="b-dropdown" data-dropdown>
+      <h1>
+        <span>История России</span>&nbsp;<a class="b-dropdown__toggle" href=""><b class="caret"></b><b class="caret up"></b></a>
+      </h1>
+      <ul class="b-dropdown__menu">
+        <li class="mr-bluedark active"><a href="">История России</a></li>
+        <li class="mr-red"><a href="">Математика</a></li>
+        <li class="mr-pink"><a href="">Итоговое сочинение</a></li>
+        <li class="mr-pink"><a href="">Русский язык</a></li>
+        <li class="mr-blue"><a href="">Информатика и ИКТ</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="clearfix">
+    <div class="g-sidebar">
+      <div class="m-course-tasks__well__day">
+        <div class="m-course-tasks__well-container">
+          <div class="m-course-tasks__well-body">
+            <h4>Дневная норма</h4>
+            <div class="b-user-progress">
+              <div class="b-circular-progress">
+                <span><span class="text-large">20/100</span><br>опыта</span>
+                <div class="c-100 p-20">
+                    <div class="slice">
+                        <div class="bar"></div>
+                        <div class="fill"></div>
+                    </div>
+                </div>
+              </div>
+              <div class="row-fluid">
+                <div class="span17">
+                  <p class="text-success">2342</p>
+                  <p>опыта всего получено</p>
+                </div>
+                <div class="span17 offset1">
+                  <p class="text-success">2</p>
+                  <p>дня занятий подряд</p>
+                </div>
+              </div>
+            </div>
+            <canvas class="b-chart" width="268" height="200"
+              data-chart="{
+                'type': 'line',
+                'labels': ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
+                'datasets': [{'data': [100, 100, 50, 50, 25, 0, 50]}]
+              }"
+            ></canvas>
+            <p class="text-muted">Занимайся 7 дней подряд<br>и получи <a href="">подарок</a></p>
+            <p class="text-muted"><a href="">Создайте акаунт</a> чтобы получить<br><span class="text-large text-success">+50 XP</span></p>
+            <p class="text-muted text-success">Вы получили бонус!<br><span class="text-large">+50 XP</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="g-content">
+      <div class="m-course-tasks__well__variants">
+        <div class="b-well__container">
+          <div class="b-well__body">
+            <h4>Решайте по вариантам</h4>
+            <ul class="b-cells">
+              <li class="is-success"><a href="">1</a></li><li><a href="">2</a></li><li><a href="">3</a></li><li><a href="">4</a></li><li><a href="">5</a></li><li><a href="">6</a></li><li><a href="">7</a></li><li><a href="">8</a></li><li><a href="">9</a></li><li><a href="">10</a></li><li><a href="">11</a></li><li><a href="">12</a></li><li><a href="">13</a></li><li><a href="">14</a></li><li><a href="">15</a></li><li><a href="">16</a></li><li><a href="">17</a></li><li><a href="">18</a></li><li><a href="">19</a></li><li><a href="">20</a></li>
+            </ul>
+            <p class="text-mini text-muted display-none">Это задание с базы Unitest</p>
+          </div>
+        </div>
+      </div>
+      <div class="m-course-tasks__well__test">
+        <div class="b-well__container">
+          <div class="b-well__body">
+            <div class="tab-content">
+              <h4 class="tab-pane toggle-by-type active">Или выберите по типу</h4>
+              <h4 class="tab-pane toggle-only-necessary">Или выберите нужное</h4>
+            </div>
+            <div class="m-course-tasks__test-toolbar">
+              <div class="btn-group" data-toggle="buttons-radio">
+                <button type="button" class="btn active" data-toggle-tab=".toggle-by-type">Как на ЕГЭ</button>
+                <button type="button" class="btn" data-toggle-tab=".toggle-only-necessary">По темам</button>
+              </div>
+            </div>
+            <div class="tab-content">
+              <div class="tab-pane toggle-by-type active">
+                <h5>Первая часть</h5>
+                <ol class="list-group">
+                  {{#items}}
+                    <li>
+                      <i>{{num}}</i>
+                      <a href="{{href}}">{{name}}</a>
+                    </li>
+                  {{/items}}
+                </ol>
+                <h5>Вторая часть</h5>
+                <ol class="list-group">
+                  <li>
+                    <i>B4</i>
+                    <a href="">VII-XVIIвв. Знание основных фактов, процессов, явлений (культура).</a>
+                  </li>
+                  <li>
+                    <i>B5</i>
+                    <a href="">VII-XVIIвв. Умение проводить поиск исторической информации.</a>
+                  </li>
+                  <li>
+                    <i>B6</i>
+                    <a href="">Кто прав в споре двух поколений в романе «Отцы и дети»?</a>
+                  </li>
+                  <li>
+                    <i>B7</i>
+                    <a href="">Планиметрия. Треугольник, трапеция, параллелограмм, ромб, прямоугольник.</a>
+                  </li>
+                  <li>
+                    <i>С1</i>
+                    <a href="">Вечные проблемы недопонимая родителей и детей.</a>
+                  </li>
+                  <li>
+                    <i>С2</i>
+                    <a href="">Любовь и дети.</a>
+                  </li>
+                </ol>
+              </div>
+              <div class="tab-pane toggle-only-necessary">
+                <ol class="list-group">
+                  {{#items}}
+                    <li>
+                      <i>{{num}}</i>
+                      <a href="{{href}}">{{name}}</a>
+                    </li>
+                  {{/items}}
+                </ol>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

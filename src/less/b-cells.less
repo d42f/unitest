@@ -1,0 +1,32 @@
+.b-cells {
+  .clearfix();
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  > * {
+    .border-radius(@baseBorderRadius);
+    border: 1px solid #d9d9d9;
+    background: #f7f7f7;
+    float: left;
+    margin: 16px 16px 0 0;
+    color: #1a1a1a;
+    &, > a {
+      display: block;
+      width: 38px;
+      line-height: 38px;
+      color: inherit;
+      text-align: center;
+      text-decoration: none;
+    }
+    &:hover {
+      background: #edefed;
+    }
+    &:visited {
+      border-color: @brandColor;
+    }
+    &.is-success {
+      border-color: @successColor;
+      color: @successColor;
+    }
+  }
+}

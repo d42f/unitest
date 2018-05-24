@@ -10,7 +10,7 @@
 .btn {
   display: inline-block;
   .ie7-inline-block();
-  padding: 4px 12px;
+  padding: 7px 12px;
   margin-bottom: 0; // For input.btn
   font-family: @sansFontFamily;
   font-size: @baseFontSize;
@@ -121,15 +121,35 @@ input[type="button"] {
 // -------------------------
 .btn-primary {
   background: @btnPrimaryBackground;
+  border-color: @btnPrimaryBackground;
   color: #fff;
   &:hover, &:focus, &:active, &.active, &.disabled, &[disabled] {
-    background: @btnPrimaryBackgroundHighlight; 
+    background: @btnPrimaryBackgroundHighlight;
+    border-color: @btnPrimaryBackgroundHighlight;
     color: #fff;
   }
 }
 // Success appears as green
 .btn-success {
-  .buttonBackground(@btnSuccessBackground, @btnSuccessBackgroundHighlight);
+  background: @btnSuccessBackground;
+  border-color: @btnSuccessBackground;
+  color: #fff;
+  &:hover, &:focus, &:active, &.active, &.disabled, &[disabled] {
+    background: @btnSuccessBackgroundHighlight; 
+    border-color: @btnSuccessBackgroundHighlight;
+    color: #fff;
+  }
+}
+
+.btn-warning {
+  background: @btnWarningBackground;
+  border-color: @btnWarningBackground;
+  color: #fff;
+  &:hover, &:focus, &:active, &.active, &.disabled, &[disabled] {
+    background: @btnWarningBackgroundHighlight; 
+    border-color: @btnWarningBackgroundHighlight;
+    color: #fff;
+  }
 }
 
 // Cross-browser Jank
@@ -179,7 +199,7 @@ input[type="submit"].btn {
   color: @linkColor;
   .border-radius(0);
   &.btn-large {
-    padding: 9px 23px;
+    padding: 9px 24px;
   }
   &.btn-link-gray {
     padding: 9px 8px;
@@ -212,5 +232,22 @@ input[type="submit"].btn {
   text-align: center;
   &:hover, &:focus {
     background: #edefed;
+  }
+  &.btn-primary {
+    border-color: @brandColor;
+    background: @brandColor;
+    color: #fff;
+  }
+}
+
+.btn-half-round {
+  .border-radius(28px);
+  padding: 14px 42px 20px;
+  font-size: 20px;
+  text-align: center;
+  &[disabled] {
+    border-color: #d9d9d9;
+    background: #d9d9d9;
+    color: #fff;
   }
 }

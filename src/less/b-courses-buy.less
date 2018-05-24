@@ -1,0 +1,51 @@
+.b-courses-buy {
+  .b-courses-buy__hint {
+    margin: 13px 0 0;
+    color: #666;
+    strong {
+      color: #1a1a1a;
+    }
+  }
+  .b-courses-buy__container {
+    display: table-row;
+    > * {
+      display: table-cell;
+      vertical-align: middle;
+      &.b-courses-buy__sale {
+        width: 119px;
+      }
+      &.b-courses-buy__toolbar {
+        width: 1%;
+      }
+    }
+  }
+  span {
+    display: block;
+  }
+  .b-courses-buy__price {
+    line-height: 30px;
+    font-size: 24px;
+    .text-muted {
+      font-size: 20px;
+      font-weight: lighter;
+    }
+  }
+  .b-courses-buy__sale {
+    background: url(../../img/icon-db.gif) left center no-repeat;
+    line-height: 20px;
+    padding: 0 0 0 43px;
+    color: #49bb6c;
+    font-size: 20px;
+    .text-small {
+      font-size: 14px;
+    }
+  }
+  .b-courses-buy__toolbar {
+    white-space: nowrap;
+    .btn {
+      padding: 15px 22px 19px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+}
